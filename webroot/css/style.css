@@ -291,12 +291,7 @@ body {
     border-radius: 2rem;
 }
 .digiturnos .tecladoNumerico .tecla-ok {
-    background: #00ff66;
+    background: #1f9d55;
     color: #ffffff;
-    border-color: #11fe60;
-}
-.digiturnos .tecladoNumerico #borrar {
-    background: #626262;
-    color: #ffffff;
-    border-color: #5b5b5b;
+    border-color: #51d88a;
 }
