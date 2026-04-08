@@ -1,0 +1,302 @@
+/* ===============================
+   ESTILOS GENERALES (SIN CAMBIOS)
+================================ */
+.menu {
+    background-color: #333;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.acciones {
+    background-color: white;
+    padding: 10px 0;
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.menu ul li {
+    margin: 0 15px;
+}
+
+.menu ul li a,
+.acciones ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu ul li a:hover {
+    text-decoration: underline;
+}
+
+body {
+    padding-bottom: 20px;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+/* ===============================
+   LOGIN (SIN CAMBIOS)
+================================ */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-box {
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* ===============================
+   MENÚ PRINCIPAL
+================================ */
+.menu-list {
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+}
+
+.menu-list > li {
+    position: relative;
+    margin: 0 15px;
+}
+
+.menu-list .dropdown-toggle {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    display: block;
+    cursor: pointer;
+}
+
+/* ===============================
+   DROPDOWN (SIN CAMBIOS)
+================================ */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #252525;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    min-width: 150px;
+    border-radius: 5px;
+    z-index: 9999;
+}
+
+.dropdown-menu li {
+    padding: 2px 15px;
+}
+
+.dropdown-menu li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu li a:hover {
+    background: #555;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* ===============================
+   BOTÓN HAMBURGUESA
+================================ */
+.menu-toggle-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+/* ===============================
+   CONTENEDOR MENÚ
+================================ */
+.menu-content {
+    width: 100%;
+}
+
+/* ===============================
+   MENÚ COLAPSADO + SLIDE
+================================ */
+@media (max-width: 640px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    /* CAMBIO CLAVE: ya no usamos display:none */
+    .menu-content {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition:
+            max-height 0.4s ease,
+            opacity 0.3s ease,
+            transform 0.3s ease;
+        width: 100%;
+    }
+
+    .menu-content.active {
+        max-height: 1200px; /* suficiente para el menú */
+        opacity: 1;
+        transform: translateY(0);
+        background-color: #383838;
+        padding: 10px 0;
+    }
+
+    .menu-list {
+        flex-direction: column;
+        background-color: #383838;
+    }
+
+    .menu ul {
+        flex-direction: column;
+    }
+
+    .menu ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .menu-list > li {
+        width: 80%;
+        text-align: center;
+    }
+
+    .dropdown-menu {
+        left: auto;
+        right: auto;
+        transform: none;
+        width: 100%;
+        text-align: center;
+        position: relative;
+    }
+
+    /* Color base del dropdown cuando el menú está abierto */
+    .menu-content.active .dropdown-toggle {
+        color: #ffffff;        /* color texto */
+        transition: color 0.3s ease;
+    }
+
+    /* Hover / tap */
+    .menu-content.active .dropdown-toggle:hover {
+        color: #1c536d;
+    }
+
+    /* Dropdown seleccionado (si lo marcas como activo con JS) */
+    .menu-content.active .dropdown.active > .dropdown-toggle {
+        color: #ffffff;
+        background-color: #4f7585;
+        border-radius: 5px;
+    }
+}
+
+/* ===============================
+   CONTENIDO INTERNO (SIN CAMBIOS)
+================================ */
+.digiturnos.form.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Teclado */
+.tecladoNumerico {  
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.tecladoNumerico button {
+    width: auto;
+    height: auto;
+    font-size: 10px;
+    gap: 10px;
+}
+
+.boton-oscuro {
+    background-color: #505050;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.boton-oscuro:hover {
+    background-color: rgb(79, 117, 133);
+}
+
+.digiturnos .tecladoNumerico {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(64px, 1fr));
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 420px;
+}
+.digiturnos .tecladoNumerico > button {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    font-size: clamp(1rem, 3.2vw, 1.5rem);
+    border-radius: 2rem;
+}
+.digiturnos .tecladoNumerico .tecla-ok {
+    background: #00ff66;
+    color: #ffffff;
+    border-color: #11fe60;
+}
+.digiturnos .tecladoNumerico #borrar {
+    background: #626262;
+    color: #ffffff;
+    border-color: #5b5b5b;
+}
