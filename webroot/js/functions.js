@@ -74,9 +74,11 @@ function toggleMenu() {
 
 document.addEventListener('DOMContentLoaded', function () {
     const teclaOk = document.querySelector('.tecla-ok');
+    const formDocumento = document.getElementById('formDocumento');
 
-    teclaOk.addEventListener('click', function () {
-        teclaOk.style.opacity = '0.5';
-        teclaOk.disabled = true; // Deshabilitar el botón para evitar múltiples clics
-    });
+    if (teclaOk && formDocumento) {
+        teclaOk.addEventListener('click', function () {
+            formDocumento.submit();
+        });
+    }
 });
