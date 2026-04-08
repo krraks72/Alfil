@@ -47,23 +47,20 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    document.querySelectorAll('.tecla').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const campo = document.getElementById('campoDocumento');
-            campo.value += btn.dataset.num || '';
-        });
-    });
-
     const borrarBtn = document.getElementById('borrar');
-    if (borrarBtn) {
+    const campoDocumento = document.getElementById('campoDocumento');
+
+    if (borrarBtn && campoDocumento) {
         borrarBtn.addEventListener('click', () => {
-            const campo = document.getElementById('campoDocumento');
-            campo.value = campo.value.slice(0, -1);
+            if (campoDocumento.value.length > 0) {
+                campoDocumento.value = campoDocumento.value.slice(0, -1);
+            }
         });
+    } else {
+        console.warn('El botón borrar o el campo documento no se encontraron en el DOM.');
     }
 
 });
-
 
 function toggleMenu() {
     const menu = document.getElementById("menuContent");
@@ -80,5 +77,18 @@ document.addEventListener('DOMContentLoaded', function () {
         teclaOk.addEventListener('click', function () {
             formDocumento.submit();
         });
+    } else {
+        console.warn('El botón OK o el formulario no se encontraron en el DOM.');
+    }
+
+    const teclas = document.querySelectorAll('.tecla');
+    if (teclas.length > 0 && campoDocumento) {
+        teclas.forEach(btn => {
+            btn.addEventListener('click', () => {
+                campoDocumento.value += btn.dataset.num || '';
+            });
+        });
+    } else {
+        console.warn('No se encontraron botones de teclado numérico o el campo documento no está en el DOM.');
     }
 });

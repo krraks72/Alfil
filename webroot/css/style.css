@@ -295,3 +295,7 @@ body {
     color: #ffffff;
     border-color: #51d88a;
 }
+
+#campoDocumento {
+    font-size: 1.5em; /* Aumenta el tamaño de la fuente */
+}
