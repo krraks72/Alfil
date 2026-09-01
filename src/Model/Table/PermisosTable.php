@@ -28,7 +28,6 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Permiso[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
  * @method \App\Model\Entity\Permiso[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
  *
- * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class PermisosTable extends Table
 {
@@ -46,7 +45,7 @@ class PermisosTable extends Table
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
-        $this->addBehavior('Timestamp');
+        // Timestamp behavior disabled - SQL Server will use defaults or triggers
         
         $this->belongsTo('Perfiles', [
             'foreignKey' => 'perfileId',

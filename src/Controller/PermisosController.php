@@ -37,12 +37,10 @@ class PermisosController extends AppController
             return $this->redirect(['action' => 'index']);
         }
 
-        if (!$filtroId) {
+        if ($filtroId === null || $filtroId === '') {
             $permisos = $this->paginate($this->Permisos->find()->where(['perfileId' => '']));
-        }
-        else {
+        } else {
             $permisos = $this->paginate($this->Permisos->find()->where(['perfileId' => $filtroId]));
-            $this->request->getSession()->delete('filtroId');
         }
         
         $perfiles = $this->Permisos->Perfiles->find('list')->where(['estado' => 1])->limit(200)->all();
@@ -52,7 +50,6 @@ class PermisosController extends AppController
     /**
      * View method
      *
-     * @param string|null $id Permiso id.
      * @return \Cake\Http\Response|null|void Renders view
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
@@ -121,7 +118,6 @@ class PermisosController extends AppController
     /**
      * Edit method
      *
-     * @param string|null $id Permiso id.
      * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */

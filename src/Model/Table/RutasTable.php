@@ -28,7 +28,6 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Ruta[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
  * @method \App\Model\Entity\Ruta[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
  *
- * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class RutasTable extends Table
 {
@@ -46,7 +45,7 @@ class RutasTable extends Table
         $this->setDisplayField('codigo');
         $this->setPrimaryKey('id');
 
-        $this->addBehavior('Timestamp');
+        // Timestamp behavior disabled - SQL Server will use defaults or triggers
         
         $this->hasMany('Salasrutas', [
             'foreignKey' => 'rutaId',

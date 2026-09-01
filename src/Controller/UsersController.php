@@ -41,8 +41,7 @@ class UsersController extends AppController
     /**
      * View method
      *
-     * @param string|null $id User id.
-     * @return \Cake\Http\Response|null|void Renders view
+    * @return \Cake\Http\Response|null|void Renders view
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view()
@@ -105,7 +104,6 @@ class UsersController extends AppController
     /**
      * Edit method
      *
-     * @param string|null $id User id.
      * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
@@ -235,16 +233,18 @@ class UsersController extends AppController
      */
     public function find()
     {
+        $cachePermisos = HelperController::obtenerPermisosUsuario();
+        $permisosArray = HelperController::obtenerArrayPermiso();
+
         $documento = HelperController::obtenerAutenticacionUsuario();
         $users = $this->paginate($this->Users->find()->where(['documento' => $documento]));
 
-        $this->set(compact('users'));
+        $this->set(compact('users', 'cachePermisos', 'permisosArray'));
     }
 
     /**
      * Change method
      *
-     * @param string|null $id User id.
      * @return \Cake\Http\Response|null|void Redirects on successful change, renders view otherwise.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */

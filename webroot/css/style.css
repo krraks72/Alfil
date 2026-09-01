@@ -1,13 +1,16 @@
 /* ===============================
-   ESTILOS GENERALES (SIN CAMBIOS)
+   ESTILOS GENERALES (MODERNO)
 ================================ */
 .menu {
-    background-color: #333;
-    padding: 10px 0;
+    background: linear-gradient(90deg, #ffffff 0%, #f8fdff 50%, #fffaf8 100%);
+    padding: 12px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    border-bottom: 1px solid rgba(0, 217, 255, 0.12);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(8px);
 }
 
 .acciones {
@@ -31,13 +34,18 @@
 
 .menu ul li a,
 .acciones ul li a {
-    color: white;
+    color: #0f1729;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    padding: 4px 8px;
+    border-radius: 4px;
 }
 
 .menu ul li a:hover {
-    text-decoration: underline;
+    color: #00d9ff;
+    background: rgba(0, 217, 255, 0.08);
+    text-decoration: none;
 }
 
 body {
@@ -89,10 +97,12 @@ body {
 
 .menu-list .dropdown-toggle {
     text-decoration: none;
-    color: #fff;
+    color: #0f1729;
     padding: 10px;
     display: block;
     cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
 }
 
 /* ===============================
@@ -101,30 +111,57 @@ body {
 .dropdown-menu {
     display: none;
     position: absolute;
-    top: 100%;
+    top: calc(100% - 2px);
     left: 50%;
     transform: translateX(-50%);
-    background: #252525;
+    background: linear-gradient(180deg, #ffffff 0%, #fafbff 100%);
     list-style: none;
-    padding: 10px 0;
+    padding: 8px 0;
     margin: 0;
-    min-width: 150px;
-    border-radius: 5px;
+    min-width: 180px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 217, 255, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
     z-index: 9999;
+    animation: slideDown 0.2s ease-out;
+    pointer-events: none;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown-menu:hover {
+    display: block;
+    pointer-events: auto;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
 }
 
 .dropdown-menu li {
-    padding: 2px 15px;
+    padding: 4px 0;
 }
 
 .dropdown-menu li a {
-    color: #fff;
+    color: #0f1729;
     text-decoration: none;
     display: block;
+    padding: 8px 16px;
+    transition: all 0.15s ease;
 }
 
 .dropdown-menu li a:hover {
-    background: #555;
+    background: linear-gradient(90deg, rgba(0, 217, 255, 0.1) 0%, rgba(255, 0, 107, 0.1) 100%);
+    color: #00d9ff;
+    padding-left: 20px;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -218,21 +255,29 @@ body {
     }
 
     /* Color base del dropdown cuando el menú está abierto */
+    .menu-content {
+        background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(240,247,255,0.95) 100%) !important;
+    }
+
     .menu-content.active .dropdown-toggle {
-        color: #ffffff;        /* color texto */
-        transition: color 0.3s ease;
+        color: #0f1729;
+        transition: all 0.3s ease;
+        padding-left: 16px;
     }
 
     /* Hover / tap */
     .menu-content.active .dropdown-toggle:hover {
-        color: #1c536d;
+        color: #00d9ff;
+        background: rgba(0, 217, 255, 0.1);
+        border-radius: 6px;
     }
 
     /* Dropdown seleccionado (si lo marcas como activo con JS) */
     .menu-content.active .dropdown.active > .dropdown-toggle {
         color: #ffffff;
-        background-color: #4f7585;
-        border-radius: 5px;
+        background: linear-gradient(135deg, #00d9ff 0%, #ff006b 100%);
+        border-radius: 6px;
+        font-weight: 700;
     }
 }
 
@@ -264,17 +309,22 @@ body {
 }
 
 .boton-oscuro {
-    background-color: #505050;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
+    background: linear-gradient(135deg, #0f1729 0%, #1a2a42 100%);
+    color: #00d9ff;
+    border: 1px solid rgba(0, 217, 255, 0.2);
+    border-radius: 8px;
     cursor: pointer;
     font-size: 10px;
-    transition: background-color 0.3s ease;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .boton-oscuro:hover {
-    background-color: rgb(79, 117, 133);
+    background: linear-gradient(135deg, #1a2a42 0%, #0f1729 100%);
+    border-color: rgba(0, 217, 255, 0.4);
+    box-shadow: 0 8px 20px rgba(0, 217, 255, 0.2);
+    transform: translateY(-1px);
 }
 
 .digiturnos .tecladoNumerico {
@@ -291,9 +341,16 @@ body {
     border-radius: 2rem;
 }
 .digiturnos .tecladoNumerico .tecla-ok {
-    background: #1f9d55;
+    background: linear-gradient(135deg, #00d9ff 0%, #33ddc3 100%);
     color: #ffffff;
-    border-color: #51d88a;
+    border-color: rgba(0, 217, 255, 0.3);
+    font-weight: 700;
+    box-shadow: 0 6px 20px rgba(0, 217, 255, 0.2);
+}
+
+.digiturnos .tecladoNumerico .tecla-ok:hover {
+    box-shadow: 0 8px 28px rgba(0, 217, 255, 0.35);
+    transform: translateY(-2px);
 }
 
 #campoDocumento {

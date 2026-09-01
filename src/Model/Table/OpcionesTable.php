@@ -11,7 +11,7 @@ use Cake\Validation\Validator;
 /**
  * Opciones Model
  *
- * @property \App\Model\Table\ModulossTable&\Cake\ORM\Association\BelongsTo $Modulos
+ * @property \App\Model\Table\ModulosTable&\Cake\ORM\Association\BelongsTo $Modulos
  * @property \App\Model\Table\PermisosTable&\Cake\ORM\Association\HasMany $Permisos *
  *
  * @method \App\Model\Entity\Opcione newEmptyEntity()
@@ -28,7 +28,6 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Opcione[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
  * @method \App\Model\Entity\Opcione[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
  *
- * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class OpcionesTable extends Table
 {
@@ -46,7 +45,7 @@ class OpcionesTable extends Table
         $this->setDisplayField('opcion');
         $this->setPrimaryKey('id');
 
-        $this->addBehavior('Timestamp');
+        // Timestamp behavior disabled - SQL Server will use defaults or triggers
 
         $this->belongsTo('Modulos', [
             'foreignKey' => 'moduloId',

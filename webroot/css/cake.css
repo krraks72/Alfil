@@ -1,54 +1,67 @@
-/* Milligram overrides */
+/* Modern Tech Palette */
 :root {
-    /* The following are official CakePHP colors */
-    --color-cakephp-red: #d33c43;
-    --color-cakephp-gray: #939396;
-    --color-cakephp-blue: #2f85ae;
-    --color-cakephp-lightblue: #34bdd7;
+    /* Vibrant tech colors */
+    --color-cakephp-red: #ff006b;
+    --color-cakephp-gray: #4a5568;
+    --color-cakephp-blue: #00d9ff;
+    --color-cakephp-lightblue: #66f5ff;
 
-    /* These are additional colors */
-    --color-lightgray: #606c76;
-    --color-white: #fff;
+    /* Additional colors */
+    --color-lightgray: #64748b;
+    --color-white: #ffffff;
 
-    --color-main-bg: #f5f7fa;
-    --color-links: var(--color-cakephp-blue);
-    --color-links-active: #2a6496;
-    --color-headings: #363637;
+    --color-main-bg: #f0f7ff;
+    --color-links: #0099ff;
+    --color-links-active: #0066cc;
+    --color-headings: #0f1729;
 
-    --color-message-success-bg: #e3fcec;
-    --color-message-success-text: #1f9d55;
-    --color-message-success-border: #51d88a;
+    --color-message-success-bg: #e8fffe;
+    --color-message-success-text: #048a6f;
+    --color-message-success-border: #33ddc3;
 
-    --color-message-warning-bg: #fffabc;
-    --color-message-warning-text: #8d7b00;
-    --color-message-warning-border: #d3b800;
+    --color-message-warning-bg: #fff8e8;
+    --color-message-warning-text: #d97600;
+    --color-message-warning-border: #ffb84d;
 
-    --color-message-error-bg: #fcebea;
-    --color-message-error-text: #cc1f1a;
-    --color-message-error-border: #ef5753;
+    --color-message-error-bg: #ffe8f0;
+    --color-message-error-text: #d60055;
+    --color-message-error-border: #ff4d7f;
 
-    --color-message-info-bg: #eff8ff;
-    --color-message-info-text: #2779bd;
-    --color-message-info-border: #6cb2eb;
+    --color-message-info-bg: #e8f4ff;
+    --color-message-info-text: #0055b8;
+    --color-message-info-border: #4d9eff;
 }
 
 .button, button, input[type='button'], input[type='reset'], input[type='submit'] {
-    background-color: var(--color-cakephp-red);
-    border-color: var(--color-cakephp-red);
+    background: linear-gradient(135deg, #00d9ff 0%, #0099ff 100%);
+    border: 1px solid rgba(0, 217, 255, 0.3);
     margin: 5px;
+    color: var(--color-white);
+    font-weight: 600;
+    border-radius: 6px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(0, 217, 255, 0.2);
+}
+
+.button:hover, button:hover, input[type='button']:hover, input[type='reset']:hover, input[type='submit']:hover {
+    background: linear-gradient(135deg, #ff006b 0%, #ff4d9f 100%);
+    border-color: rgba(255, 0, 107, 0.3);
+    box-shadow: 0 8px 25px rgba(255, 0, 107, 0.3);
+    transform: translateY(-2px);
 }
 
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
     font-weight: 400;
     background: var(--color-main-bg);
 }
 
 /* Main */
 body {
-    background: #e2e5fc;
-    background-image: url('/img/alfil.jpg');
+    background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 25%, #fff0f7 100%);
+    background-image: linear-gradient(135deg, rgba(255,255,255,0.92), rgba(240,247,255,0.85)), url('/img/alfil.jpg');
     background-size: cover;
+    background-attachment: fixed;
 }
 
 .top-nav-links,
@@ -100,10 +113,11 @@ th a,
     font-size: 1.25rem;
     padding: 2rem;
     background: var(--color-white);
-    border-radius: 0.4rem;
-    /* Thanks Stripe */
-    box-shadow: 0 7px 14px 0 rgba(60, 66, 87, 0.1),
-        0 3px 6px 0 rgba(0, 0, 0, 0.07);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 217, 255, 0.08);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
 }
 .content form {
     margin: 0;
@@ -130,17 +144,28 @@ th {
 }
 .top-nav-title a {
     font-size: 2.4rem;
-    color: var(--color-cakephp-red);
+    background: linear-gradient(135deg, #00d9ff 0%, #ff006b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 900;
+    letter-spacing: -1px;
 }
 .top-nav-title span {
-    color: var(--color-cakephp-gray);
+    color: #4a5568;
+    font-weight: 500;
 }
 .top-nav-links a {
     margin: 0 0.5rem;
+    color: #0f1729;
+    transition: all 0.2s ease;
+}
+.top-nav-links a:hover {
+    color: #00d9ff;
 }
 .top-nav-title a,
 .top-nav-links a {
-    font-weight: bold;
+    font-weight: 600;
 }
 .side-nav-item {
     display: block;

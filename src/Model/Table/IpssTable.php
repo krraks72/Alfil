@@ -29,7 +29,6 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Ips[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
  * @method \App\Model\Entity\Ips[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
  *
- * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class IpssTable extends Table
 {
@@ -47,7 +46,7 @@ class IpssTable extends Table
         $this->setDisplayField('codigoReps');
         $this->setPrimaryKey('id');
 
-        $this->addBehavior('Timestamp');
+        // Timestamp behavior disabled - SQL Server will use defaults or triggers
 
         $this->hasMany('Sedes', [
             'foreignKey' => 'id',
